@@ -24,6 +24,7 @@ let sideb = document.getElementById("sideb")
 let sidec = document.getElementById("sidec")
 
 let reset = document.getElementById("reset")
+let anglesum = document.getElementById("angle_sum")
 
 function calculate(){
     Btn.onclick = function(){
@@ -56,9 +57,12 @@ function calculate(){
 
         //calculating sin,cos,tan using sides and angle, if there is a value in the sides and not in the angle, it will calculate the angle using the sides and display it, if there is a value in the angle and not in the sides, it will calculate the sides using the angle and display it, if there is a value in both, it will calculate both and display it, if there is no value in both, it will do nothing
         if (a_side.value && c_side.value && b_side.value){
-            side_sin.textContent =`sin calculated using a and c sides:` + (a_side.value/c_side.value) + " result in degrees(rounded): " + Math.round(Math.asin(a_side.value/c_side.value)* 180/Math.PI)
+            let angleA = a_side.value/c_side.value;
+            let angleB = 90 - angleA;
+            side_sin.textContent =`sin calculated using a and c sides:` + (angleA) + " result in degrees(rounded): " + Math.round(Math.asin(angleA)* 180/Math.PI)
             side_cos.textContent = `cos calculated using b and c sides:` + (b_side.value/c_side.value) + " result in degrees(rounded): "  + Math.round(Math.acos(b_side.value/c_side.value)* 180/Math.PI)
             side_tan.textContent = `tan calculated using a and b sides:` + (a_side.value/b_side.value) + " result in degrees(rounded): " + Math.round(Math.atan(a_side.value/b_side.value) * 180/Math.PI)
+            anglesum.textContent = "all angle sum: (angleA + angleB(90 - angleA) + 90) " + (angleA + angleB + 90)
             
         }else if(a_side.value && b_side.value){
             pythagorean_theorem.textContent = `the hypotenuse of this triangle is(c side): ` + Math.sqrt(a_side.value**2 + b_side.value**2)
