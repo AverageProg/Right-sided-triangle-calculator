@@ -110,6 +110,13 @@ reset.onclick = function(){
     side_cos.textContent =""
     side_tan.textContent =""
     pythagorean_theorem.textContent =""
+    result0.style.border = "";
+    result0.style.background = "";  
+    result0.style.font = "";
+    result01.style.border = "";
+    result01.style.background = "";  
+    result01.style.font = "";
+
 }
 
 calculate()
